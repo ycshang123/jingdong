@@ -1,4 +1,24 @@
 <template>
+  <!-- 顶部搜索区 -->
+  <div class="wrapper">
+    <div class="wrapper__position">
+      <span class="iconfont">&#xe64c;</span>
+      南京工业职业技术大学计算机与软件学员软件工程技术2021级
+      <span class="iconfont wrapper__position__notice">&#xe613;</span>
+    </div>
+    <!-- 搜索 -->
+    <div class="wrapper__search">
+      <span class="iconfont">&#xe6e1;</span>
+      <span class="search__text">山姆会员商店优惠商品</span>
+    </div>
+    <!-- banner -->
+    <div class="wrapper__banner">
+      <img
+        src="https://cdn.jsdelivr.net/gh/ycshang123/image-hosting@master/banner.7gxs96fki0c0.webp"
+        class="wrapper__banner__img"
+      />
+    </div>
+  </div>
   <!-- 底部导航 -->
   <div class="docker">
     <div class="docker__item docker__item--active">
@@ -22,6 +42,53 @@
 
 <style lang="scss">
 @import "../src/style/index.scss";
+.wrapper {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0.5rem;
+  padding: 0 0.18rem;
+
+  &__position {
+    position: relative;
+    padding: 0.16rem 0.16rem 0.16rem 0;
+    font-size: 0.16rem;
+    @include ellipse;
+    &__notice {
+      position: absolute;
+      right: 0;
+      font-size: 0.2rem;
+    }
+    color: $content-fontcolor;
+  }
+
+  &__search {
+    margin-bottom: 0.12rem;
+    line-height: 0.32rem;
+    background-color: $background-color;
+    color: $placeholder-color;
+    border-radius: 0.16rem;
+    .iconfont {
+      display: inline-block;
+      padding: 0 0.12rem 0 0.16rem;
+      font-size: 0.2rem;
+    }
+    &__text {
+      display: inline-block;
+      font-size: 0.14rem;
+    }
+  }
+  &__banner {
+    height: 0;
+    overflow: hidden;
+    // 预留高度防抖 (图片高度/图片宽度)
+    padding-bottom: 25.4%;
+    &__img {
+      width: 100%;
+    }
+  }
+}
 .docker {
   display: flex;
   position: absolute;
