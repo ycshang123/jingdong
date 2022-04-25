@@ -18,7 +18,17 @@
         class="wrapper__banner__img"
       />
     </div>
+    <!-- 九宫格 -->
+    <div class="icons">
+      <div class="icons__item" v-for="(item, index) in gridList" :key="index">
+        <img class="icons__item__img" :src="item.imgUrl" />
+        <p class="icons__item__desc">{{ item.subTitle }}</p>
+      </div>
+    </div>
+    <!-- 分界线 -->
+    <div class="gap"></div>
   </div>
+
   <!-- 底部导航 -->
   <div class="docker">
     <div class="docker__item docker__item--active">
@@ -39,6 +49,56 @@
     </div>
   </div>
 </template>
+<script>
+export default {
+  data () {
+    return {
+      gridList: [
+        {
+          imgUrl: 'https://cdn.jsdelivr.net/gh/ycshang123/image-hosting@master/超市.73sny9624f40.webp',
+          subTitle: '超市便利'
+        },
+        {
+          imgUrl: 'https://cdn.jsdelivr.net/gh/ycshang123/image-hosting@master/菜市场.6rnvn6hzdqo0.webp',
+          subTitle: '菜市场'
+        },
+        {
+          imgUrl: 'https://cdn.jsdelivr.net/gh/ycshang123/image-hosting@master/水果店.zyit6m6cdy8.webp',
+          subTitle: '水果店'
+        },
+        {
+          imgUrl: 'https://cdn.jsdelivr.net/gh/ycshang123/image-hosting@master/鲜花.50l3od3bbt80.webp',
+          subTitle: '鲜花绿植'
+        },
+        {
+          imgUrl: 'https://cdn.jsdelivr.net/gh/ycshang123/image-hosting@master/医药健康.2exlgmnnjgys.webp',
+          subTitle: '医药健康'
+        },
+        {
+          imgUrl: 'https://cdn.jsdelivr.net/gh/ycshang123/image-hosting@master/家居.16gkklv74q00.webp',
+          subTitle: '家具时尚'
+        },
+        {
+          imgUrl: 'https://cdn.jsdelivr.net/gh/ycshang123/image-hosting@master/蛋糕.4u0zh568kw40.webp',
+          subTitle: '烘焙蛋糕'
+        },
+        {
+          imgUrl: 'https://cdn.jsdelivr.net/gh/ycshang123/image-hosting@master/签到.6gm6l0nia0k0.webp',
+          subTitle: '签到'
+        },
+        {
+          imgUrl: 'https://cdn.jsdelivr.net/gh/ycshang123/image-hosting@master/大牌免运.qjt10s40ups.webp',
+          subTitle: '大牌免运'
+        },
+        {
+          imgUrl: 'https://cdn.jsdelivr.net/gh/ycshang123/image-hosting@master/红包.p6kocho74pc.webp',
+          subTitle: '红包套餐'
+        }
+      ]
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 @import "../src/style/index.scss";
@@ -88,6 +148,30 @@
       width: 100%;
     }
   }
+}
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.16rem;
+  &__item {
+    width: 20%;
+    &__img {
+      display: block;
+      width: 0.4rem;
+      height: 0.4rem;
+      margin: 0 auto;
+    }
+    &__desc {
+      margin: 0.06rem 0 0.16rem 0;
+      text-align: center;
+    }
+  }
+}
+
+.gap {
+  margin: 0 -0.18rem;
+  height: 0.04rem;
+  background-color: $border-colcor;
 }
 .docker {
   display: flex;
