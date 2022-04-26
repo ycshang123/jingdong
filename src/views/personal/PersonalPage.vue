@@ -1,8 +1,9 @@
 <template>
-  <div>
-    <h2>我的</h2>
-    <AppDocker :currentIndex="3" />
-  </div>
+  <h2>我的</h2>
+  <router-link to="login">
+    <h2>登录</h2>
+  </router-link>
+  <AppDocker :currentIndex="3" />
 </template>
 
 <script>
