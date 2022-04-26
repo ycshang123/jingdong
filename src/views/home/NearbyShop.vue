@@ -6,17 +6,16 @@
       :key="item._id"
       :to="`/shop/${item._id}`"
     >
-      <shop-info :item="item" />
+      <ShopInfo :item="item" />
     </router-link>
   </div>
 </template>
 
 <script setup>
 import { toRefs, reactive } from 'vue'
-import { ShopInfoget } from '../../utils/request'
+import { get } from '../../utils/request'
 import ShopInfo from '../../components/ShopInfo.vue'
-import ShopInfo from '../../components/ShopInfo.vue'
-const data = reactive({ nearbyList })
+const data = reactive({ nearbyList: [] })
 get('/shop/list').then((result) => {
   if (result?.code === 200 && result?.data) {
     data.nearbyList = result.data
