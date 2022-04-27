@@ -1,29 +1,33 @@
 <template>
-  <div class="wrapper">
-    <static-part />
-    <nearby-shop />
+  <div class="warpper">
+    <StaticPart />
+    <NearByShop />
   </div>
   <AppDocker :currentIndex="0" />
 </template>
 
 <script>
-import StaticPart from './StaticPart.vue'
-import AppDocker from '../../components/AppDocker.vue'
-import NearbyShop from './NearbyShop.vue'
+import StaticPart from "./StaticPart"
+import AppDocker from "../../components/AppDocker.vue"
+import NearByShop from "./NearbyShop.vue"
 export default {
-  name: 'HomePage',
-  components: { StaticPart, AppDocker, NearbyShop }
-}
+  name: "HomePage",
+  components: {
+    StaticPart,
+    AppDocker,
+    NearByShop
+  },
+};
 </script>
 
-<style scoped lang="scss">
-.wrapper {
+<style lang="scss" scoped>
+.warpper {
   overflow-y: auto;
   position: absolute;
   left: 0;
+  right: 0;
   top: 0;
   bottom: 0.5rem;
-  right: 0;
-  padding: 0 0.18rem 0.1rem 0.18em;
+  padding: 0 0.18rem 0.1rem 0.18rem;
 }
 </style>

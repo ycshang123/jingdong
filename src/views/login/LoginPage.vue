@@ -32,7 +32,7 @@ import { reactive, toRefs } from "vue"
 import { useRouter } from "vue-router"
 import { post } from "../../utils/request"
 const data = reactive({
-  username: "crq",
+  username: "ycshang",
   password: "",
 })
 const router = useRouter()

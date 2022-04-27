@@ -8,6 +8,7 @@
       </div>
     </div>
     <ShopInfo :item="item" :hideBorder="true" v-show="item.imgUrl" />
+    <ShopContent :shopName="item.name" />
   </div>
 </template>
 
@@ -15,6 +16,7 @@
 import { reactive, toRefs } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { get } from '../../utils/request'
+import ShopContent from '../../components/ShopContent.vue'
 import ShopInfo from '../../components/ShopInfo.vue'
 const route = useRoute()
 const data = reactive({ item: {} })
@@ -63,6 +65,7 @@ const handleBackClick = () => {
       width: 100%;
       padding-right: 0.2rem;
       border: none;
+      outline: none;
       background: none;
       height: 0.32rem;
       font-size: 0.14rem;
