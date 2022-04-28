@@ -26,9 +26,25 @@
           </p>
         </div>
         <div class="product__number">
-          <span class="product__number__minus iconfont">&#xe686;</span>
-          1
-          <span class="product__number__plus iconfont">&#xe8fe;</span>
+          <span
+            class="product__number__minus iconfont"
+            @click="
+              () => {
+                changeCartItem(shopId, item._id, item, -1);
+              }
+            "
+            >&#xe686;</span
+          >
+          {{ getProductCartCount(shopId, item._id) }}
+          <span
+            class="product__number__plus iconfont"
+            @click="
+              () => {
+                changeCartItem(shopId, item._id, item, 1);
+              }
+            "
+            >&#xe8fe;</span
+          >
         </div>
       </div>
     </div>
@@ -39,6 +55,7 @@
 import { reactive, ref, toRefs, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { get } from '../utils/request'
+import { useStore } from 'vuex'
 
 const categories = [
   { name: '全部商品', tab: 'all' },
@@ -77,6 +94,37 @@ const getContentData = async () => {
 }
 
 const { list } = toRefs(content)
+// 店铺id
+const shopId = ref(route.params.id)
+// vuex中的购物车响应数据
+const store = useStore()
+const cartList = store.state.cartList
+
+// 改变购物车信息(提交的参数对象包括:店铺id、商品id、商品自身信息、数量)
+const changeCartItemInfo = (shopId, productId, productInfo, num) => {
+  store.commit('changeCartItemInfo', {
+    shopId,
+    productId,
+    productInfo,
+    num
+  })
+}
+
+
+const getProductCartCount = (shopId, productId) => {
+  return cartList?.[shopId]?.productList?.[productId]?.count || 0
+}
+
+const changeShop = (shopId) => {
+  store.commit('changeShop', shopId)
+}
+
+const changeCartItem = (shopId, productId, item, num) => {
+  changeCartItemInfo(shopId, productId, item, num)
+  changeShop(shopId)
+}
+
+
 </script>
 
 <style scoped lang="scss">
