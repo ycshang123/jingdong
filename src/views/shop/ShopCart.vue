@@ -9,7 +9,9 @@
         <div class="check__icon__tag">1</div>
       </div>
       <div class="check__info">
-        总计:<span class="check__info__price">￥123</span>
+        总计:<span class="check__info__price"
+          >{{ $store.state.total ? $store.state.total.toFixed(2) : 0 }}
+        </span>
       </div>
       <div class="check__btn">去结算</div>
     </div>

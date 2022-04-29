@@ -22,13 +22,14 @@
           </h4>
           <p class="product__item__sales">月售{{ item.sales }}件</p>
           <p class="product__item__price">
-            <span class="product__item__yen">￥{{ item.originPrice }}</span>
+            <span class="product__item__yen">￥{{ item.price }}</span>
           </p>
         </div>
         <div class="product__number">
           <span
             class="product__number__minus iconfont"
-            @click="
+            @click=
+            "
               () => {
                 changeCartItem(shopId, item._id, item, -1);
               }
@@ -38,7 +39,8 @@
           {{ getProductCartCount(shopId, item._id) }}
           <span
             class="product__number__plus iconfont"
-            @click="
+            @click=
+            "
               () => {
                 changeCartItem(shopId, item._id, item, 1);
               }
@@ -98,6 +100,7 @@ const { list } = toRefs(content)
 const shopId = ref(route.params.id)
 // vuex中的购物车响应数据
 const store = useStore()
+//购物车选购商品
 const cartList = store.state.cartList
 
 // 改变购物车信息(提交的参数对象包括:店铺id、商品id、商品自身信息、数量)
